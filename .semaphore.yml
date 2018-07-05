@@ -1,6 +1,5 @@
-
 version: "v1.0"
-name: My first pipeline
+name: My first pipelinesdds
 semaphore_image: standard
 blocks:
   - name: "Stage 1"
