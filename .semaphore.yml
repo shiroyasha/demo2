@@ -1,8 +1,9 @@
+
 version: "v1.0"
 name: My first pipeline
 semaphore_image: standard
 blocks:
-  - name: "Stage 13"
+  - name: "Stage 1"
     build:
       prologue:
         commands:
