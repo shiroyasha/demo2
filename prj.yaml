@@ -1,0 +1,10 @@
+apiVersion: v1alpha
+kind: Project
+metadata:
+  id: faccf3fb-8679-4ae2-b3ed-73bd93b337f1
+  name: demo2
+  owner_id: 9bf6c7db-5862-4fed-bf29-6f87ab387fc8
+spec:
+  repository:
+    url: git@github.com:darkofabijan/demo2.git
+
