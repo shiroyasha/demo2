@@ -2,7 +2,7 @@ version: "v1.0-beta-task"
 name: First pipeline example
 agent:
   machine:
-    type: e1-stg-2
+    type: e1-standard-2
     os_image: ubuntu1404
 
 blocks:
@@ -12,11 +12,11 @@ blocks:
         - name: APP_ENV
           value: prod
       jobs:
-      - name: Docket build
+      - name: Docker build
         commands:
           - checkout
           - ls -1
-          - echo "APP_ENV=$APP_ENV"
+          - echo "APP_ENV: $APP_ENV"
           - echo "Docker build..."
           - echo "done"
 
