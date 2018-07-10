@@ -1,9 +1,12 @@
-version: "v1.0"
+version: "v1.0-beta-task"
 name: My first pipeline
-semaphore_image: standard
+agent:
+  machine:
+    type: e1-stg-2
+    os_image: ubuntu
 blocks:
-  - name: "Stage 13"
-    build:
+  - name: "Stage 1"
+    task:
       prologue:
         commands:
           - checkout
@@ -30,7 +33,7 @@ blocks:
           - ls -lah
 
   - name: "Stage 2"
-    build:
+    task:
       jobs:
       - name: Echo job
         commands:
