@@ -27,6 +27,8 @@ blocks:
       jobs:
       - name: Smoke
         commands:
+          - uname -a
+          - lsb_release -a
           - checkout
           - echo "make smoke"
 
