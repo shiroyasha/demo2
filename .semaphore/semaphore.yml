@@ -23,8 +23,7 @@ blocks:
   - name: "Smoke tests"
     task:
       jobs:
-      - name: Smoke
-        commands:
+      - commands:
           - checkout
           - echo "make smoke"
 
@@ -36,13 +35,11 @@ blocks:
           - checkout
           - echo "make rspec"
 
-      - name: Lint code
-        commands:
+      - commands:
           - checkout
           - echo "make lint"
 
-      - name: Check security
-        commands:
+      - commands:
           - checkout
           - echo "make security"
 
