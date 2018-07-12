@@ -1,5 +1,5 @@
 version: "v1.0-beta-task"
-name: First pipeline example
+name: First pipeline examplea
 agent:
   machine:
     type: e1-standard-2
@@ -14,8 +14,6 @@ blocks:
       jobs:
       - name: Docker build
         commands:
-          - uname -a
-          - lsb_release -a
           - checkout
           - ls -1
           - echo $APP_ENV
@@ -27,8 +25,6 @@ blocks:
       jobs:
       - name: Smoke
         commands:
-          - uname -a
-          - lsb_release -a
           - checkout
           - echo "make smoke"
 
