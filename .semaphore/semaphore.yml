@@ -13,6 +13,8 @@ blocks:
           value: prod
         - name: ENVV
           value: something
+      secrets:
+        - name: aws-credentials
       jobs:
       - name: Docker build image1
         commands:
@@ -21,6 +23,8 @@ blocks:
           - echo $APP_ENV
           - echo "Docker build..."
           - echo "done"
+          - echo $AWS_KEY
+          - echo $AWS_SECRET
       - name: Docker build img2
         commands:
           - checkout
