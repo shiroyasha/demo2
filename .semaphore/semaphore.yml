@@ -11,8 +11,24 @@ blocks:
       env_vars:
         - name: APP_ENV
           value: prod
+        - name: ENVV
+          value: something
       jobs:
-      - name: Docker build
+      - name: Docker build image1
+        commands:
+          - checkout
+          - ls -1
+          - echo $APP_ENV
+          - echo "Docker build..."
+          - echo "done"
+      - name: Docker build img2
+        commands:
+          - checkout
+          - ls -1
+          - echo $APP_ENV
+          - echo "Docker build..."
+          - echo "done"
+      - name: Docker build img3
         commands:
           - checkout
           - ls -1
