@@ -13,8 +13,6 @@ blocks:
           value: prod
         - name: ENVV
           value: something
-      secrets:
-        - name: aws-credentials
       jobs:
       - name: Docker build image1
         commands:
