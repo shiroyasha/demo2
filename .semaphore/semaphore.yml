@@ -1,9 +1,9 @@
-version: "v1.0-beta-task"
+version: "v1.0"
 name: First pipeline example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1404
+    os_image: ubuntu1804
 
 blocks:
   - name: "Build"
@@ -18,7 +18,7 @@ blocks:
           - ls -1
           - echo $APP_ENV
           - echo "Docker build..."
-          - echo "done"
+          - echo "done... 123"
 
   - name: "Smoke tests"
     task:
