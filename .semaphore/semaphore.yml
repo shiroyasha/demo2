@@ -1,5 +1,5 @@
 version: "v1.0-beta-task"
-name: First pipeline example
+name: First pipeline examp
 agent:
   machine:
     type: e1-standard-2
