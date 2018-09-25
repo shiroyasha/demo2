@@ -15,5 +15,5 @@ blocks:
       - name: Docker build
         commands:
           - checkout
-          - ps auxf
+          - ps -eo command,user,pid,%mem --sort=%mem
     
