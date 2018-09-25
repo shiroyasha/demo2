@@ -24,7 +24,7 @@ blocks:
           - sem-service start postgres:9.6
           - sem-service start redis
           - sem-service start mysql
-          - sem-service start mamcached
+          - sem-service start memcached
           - ps -eo command,user,pid,%mem --sort=%mem
           
     
