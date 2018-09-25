@@ -12,6 +12,14 @@ blocks:
         - name: APP_ENV
           value: prod
       jobs:
+      - name: language versions
+        commands:
+          - ruby -v
+          - sem-version ruby 2.3
+          - ruby -v
+          - sem-version ruby 2.5
+          - ruby -v
+          
       - name: services
         commands:
           - sudo systemctl start mysql
