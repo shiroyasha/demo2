@@ -12,12 +12,20 @@ blocks:
         - name: APP_ENV
           value: prod
       jobs:
-      - name: Docker build
+      - name: services
         commands:
-          - checkout
           - sudo systemctl start mysql
           - sudo systemctl start postgresql
           - sudo systemctl start mongod
           - sudo systemctl start redis-server
           - ps -eo command,user,pid,%mem --sort=%mem
+      - name: docker services
+        commands:
+          - sem-service start postgres:9.6
+          - sem-service start redis
+          - sem-service stop redis
+          - sem-service status redis
+          - sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
+          - ps -eo command,user,pid,%mem --sort=%mem
+          
     
