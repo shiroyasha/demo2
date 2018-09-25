@@ -15,5 +15,9 @@ blocks:
       - name: Docker build
         commands:
           - checkout
+          - sudo systemctl start mysql
+          - sudo systemctl start postgresql
+          - sudo systemctl start mongod
+          - sudo systemctl start redis-server
           - ps -eo command,user,pid,%mem --sort=%mem
     
