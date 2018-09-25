@@ -23,9 +23,8 @@ blocks:
         commands:
           - sem-service start postgres:9.6
           - sem-service start redis
-          - sem-service stop redis
-          - sem-service status redis
-          - sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
+          - sem-service stop mysql
+          - sem-service status mamcached
           - ps -eo command,user,pid,%mem --sort=%mem
           
     
