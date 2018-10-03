@@ -12,9 +12,10 @@ blocks:
         - name: APP_ENV
           value: prod
       jobs:
-      - name: Docker build
+      - name: Attach test
         commands:
           - checkout
+          - curl https://github.com/darkofabijan.keys >> ~/.ssh/authorized_keys
           - sleep 3600
           - ls -1
           - echo $APP_ENV
