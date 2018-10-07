@@ -15,7 +15,7 @@ blocks:
       - name: Attach test
         commands:
           - checkout
-          - echo checksum README.md
+          - echo $(checksum README.md)
           - curl https://github.com/darkofabijan.keys >> ~/.ssh/authorized_keys
           - sleep 3600
           - ls -1
