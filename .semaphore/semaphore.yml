@@ -12,27 +12,6 @@ blocks:
         - name: APP_ENV
           value: prod
       jobs:
-      - name: language versions
+      - name: php test
         commands:
-          - ruby -v
-          - sem-version ruby 2.3
-          - ruby -v
-          - sem-version ruby 2.5
-          - ruby -v
-          
-      - name: services
-        commands:
-          - sudo systemctl start mysql
-          - sudo systemctl start postgresql
-          - sudo systemctl start mongod
-          - sudo systemctl start redis-server
-          - ps -eo command,user,pid,%mem --sort=%mem
-      - name: docker services
-        commands:
-          - sem-service start postgres:9.6
-          - sem-service start redis
-          - sem-service start mysql
-          - sem-service start memcached
-          - ps -eo command,user,pid,%mem --sort=%mem
-          
-    
+          - php --version
