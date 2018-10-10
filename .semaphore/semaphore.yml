@@ -12,6 +12,27 @@ blocks:
         - name: APP_ENV
           value: prod
       jobs:
-      - name: php test
+      - name: php test 1
         commands:
           - php --version
+      - name: php test 2
+        commands:
+          - php --version          
+      - name: php test 3
+        commands:
+          - php --version
+      - name: php test 4
+        commands:
+          - php --version          
+      - name: php test 5
+        commands:
+          - php --version          
+      - name: php test 6
+        commands:
+          - php --version          
+      - name: php test 7
+        commands:
+          - php --version          
+      - name: php test 8
+        commands:
+          - php --version          
