@@ -14,6 +14,7 @@ blocks:
       jobs:
       - name: language versions
         commands:
+          - env
           - ruby -v
           - sem-version ruby 2.3
           - ruby -v
