@@ -6,61 +6,190 @@ agent:
     os_image: ubuntu1404
 
 blocks:
-  - name: "Build"
-    task:
-      env_vars:
-        - name: APP_ENV
-          value: prod
-      jobs:
-      - name: Attach test
-        commands:
-          - checkout
-          - echo $(checksum README.md)
-          - curl https://github.com/darkofabijan.keys >> ~/.ssh/authorized_keys
-          - sleep 3600
-          - ls -1
-          - echo $APP_ENV
-          - echo "Docker build..."
-          - echo "done"
-
-  - name: "Smoke tests"
+  - name: "List by date and store all the things"
     task:
       jobs:
-      - name: Smoke
-        commands:
-          - checkout
-          - echo "make smoke"
-
-  - name: "Unit tests"
-    task:
-      jobs:
-      - name: RSpec
-        commands:
-          - checkout
-          - echo "make rspec"
-
-      - name: Lint code
-        commands:
-          - checkout
-          - echo "make lint"
-
-      - name: Check security
-        commands:
-          - checkout
-          - echo "make security"
-
-  - name: "Integration tests"
-    task:
-      jobs:
-      - name: Cucumber
-        commands:
-          - checkout
-          - echo "make cucumber"
-
-  - name: "Push Image"
-    task:
-      jobs:
-      - name: Push
-        commands:
-          - checkout
-          - echo "make docker.push"
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
+        - commands:
+          - ls
