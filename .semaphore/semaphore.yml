@@ -1,5 +1,5 @@
 version: "v1.0"
-name: First pipeline examps
+name: First pipeline
 agent:
   machine:
     type: e1-standard-2
@@ -14,6 +14,8 @@ blocks:
       jobs:
       - name: language versions
         commands:
+          - ls -lah
+          - df -h
           - env
           - ruby -v
           - sem-version ruby 2.3
