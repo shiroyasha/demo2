@@ -22,6 +22,7 @@ blocks:
           - ruby -v
           - sem-version ruby 2.5
           - ruby -v
+          - dockerize
           
       - name: services
         commands:
