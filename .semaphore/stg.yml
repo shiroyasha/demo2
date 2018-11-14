@@ -1,5 +1,5 @@
 version: "v1.0"
-name: Build & Test
+name: Deploy to stating
 agent:
   machine:
     type: e1-standard-2
@@ -20,7 +20,3 @@ blocks:
           - ruby -v
           - sem-version ruby 2.5
           - ruby -v
-
-promotions:
-  - name: Staging deploy
-    pipeline_file: stg.yml
