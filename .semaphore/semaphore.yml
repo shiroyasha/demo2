@@ -11,10 +11,9 @@ blocks:
       jobs:
       - name: language versions
         commands:
-          - cache restore elasticsearch-6.2.1
-          - cd /tmp
-          - wget -nc https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.1.deb
-          - cache store elasticsearch-6.2.1 elasticsearch-6.2.1.deb
+          - cache list          
+          - cache has_key elasticsearch-6.2.1 || wget -nc https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.1.deb
+          - cache has_key elasticsearch-6.2.1 && cache store elasticsearch-6.2.1 elasticsearch-6.2.1.deb
 
 
   - name: "Build ppl2"
@@ -22,7 +21,6 @@ blocks:
       jobs:
       - name: language versions
         commands:
+          - cache list
           - cache restore elasticsearch-6.2.1
-          - cd /tmp
-          - wget -nc https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.1.deb
-          - cache store elasticsearch-6.2.1 elasticsearch-6.2.1.deb
+          - ls -lah
