@@ -11,16 +11,17 @@ blocks:
       jobs:
       - name: language versions
         commands:
-          - nproc
-          - ls -lah
-          - df -h
-          - env
-          - ruby -v
-          - sem-version ruby 2.3
-          - ruby -v
-          - sem-version ruby 2.5
-          - ruby -v
+          - cache restore elasticsearch-6.2.1
+          - cd /tmp
+          - wget -nc https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.1.deb
+          - cache store elasticsearch-6.2.1 elasticsearch-6.2.1.deb
 
-promotions:
-  - name: Staging deploy
-    pipeline_file: stg.yml
+  - name: "Build ppl2"
+    task:
+      jobs:
+      - name: language versions
+        commands:
+          - cache restore elasticsearch-6.2.1
+          - cd /tmp
+          - wget -nc https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.1.deb
+          - cache store elasticsearch-6.2.1 elasticsearch-6.2.1.deb
