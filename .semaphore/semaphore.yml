@@ -1,26 +1,25 @@
 version: "v1.0"
-name: Build & Test
+name: Example ppl
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: "Build ppl"
+  - name: Fetch deps
     task:
       jobs:
-      - name: language versions
+      - name: Download and cache
         commands:
           - cache list          
           - cache has_key elasticsearch-6.2.1 || wget -nc https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.1.deb
           - cache has_key elasticsearch-6.2.1 || cache store elasticsearch-6.2.1 elasticsearch-6.2.1.deb
 
 
-  - name: "Build ppl2"
+  - name: Tests
     task:
       jobs:
       - name: language versions
         commands:
-          - cache list
           - cache restore elasticsearch-6.2.1
-          - ls -lah
+          - echo "install ES and run tests"
