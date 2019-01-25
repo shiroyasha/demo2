@@ -23,3 +23,56 @@ blocks:
         commands:
           - cache restore elasticsearch-6.2.1
           - echo "install ES and run tests"
+
+promotions:
+  - name: Provision Semaphore Classic Builder
+    pipeline_file: classic.yml
+    
+    predefined_env_vars:
+      # Simplest example - everything is required
+      - name: SERVER_IP
+      - name: SERVER_HOSTNAME
+      - name: SERVER_COLOR
+
+      # Simplest example - in key is option set required to false
+      - name: SERVER_IP
+        required: false
+        
+      # This field is required, if you leave it blank (don't send anything to API) we will set it to default value
+      - name: SERVER_HOSTNAME
+        default_value: green
+
+      # This is not valid definition        
+      - name: SERVER_COLOR
+        required: false
+        default_value: green
+
+      # Simplest example
+      - name: SERVER_IP
+        description: Bla bla
+      - name: SERVER_HOSTNAME
+        description: Bla bla
+      - name: SERVER_COLOR
+        description: Bla bla
+
+      # The value passed must be one from the list. In UI we merge default with values and select defaut. 
+      # In API if some value which is different from default + values is sent we reject
+      # In API if nothing is sent we set default value
+      # In API if valid value is sent it will be that value :)      
+      - name: SERVER_IP
+        description: Lorem impsum
+        dafault_value: "Bnbnbn"
+        values: 
+          - "A"
+          - "B"
+          - "C"          
+
+      # The value passed must be one from the list. First is default in UI is black option in select box.
+      # We are not sending anything to API if user selected blank value from the UI.
+      - name: SERVER_IP
+        required: false
+        description: Lorem impsum      
+        values: 
+          - "192.158.23.23"
+          - "192.158.23.23"
+      
