@@ -76,3 +76,8 @@ promotions:
           - "192.158.23.23"
           - "192.158.23.23"
       
+      # Just example of simplest form
+      - name: SERVER_IP
+        values: 
+          - "192.158.23.23"
+          - "192.158.23.23"      
