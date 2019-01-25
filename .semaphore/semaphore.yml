@@ -71,7 +71,7 @@ promotions:
         - name: SERVER_IP
           description: Lorem impsum
           dafault_value: "Bnbnbn"
-          values: 
+          options: 
             - "A"
             - "B"
             - "C"          
@@ -81,12 +81,12 @@ promotions:
         - name: SERVER_IP
           required: false
           description: Lorem impsum      
-          values: 
+          options: 
             - "192.158.23.23"
             - "192.158.23.23"
 
         # Just example of simplest form
         - name: SERVER_IP
-          values: 
+          options: 
             - "192.158.23.23"
             - "192.158.23.23"      
