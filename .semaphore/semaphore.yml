@@ -2,8 +2,8 @@ version: "v1.0"
 name: Example ppls
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
+    type: a1-standard-2
+    os_image: macos-some-codename:)
 
 blocks:
   - name: Fetch deps
