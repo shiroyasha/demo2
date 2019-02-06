@@ -25,36 +25,22 @@ blocks:
           - echo "install ES and run tests"
 
 promotions:
-  - name: Deploy to X
+  - name: Deploy to Production
     pipeline_file:
-    parameters:
-      files:
-        - name: Secret db
-          path: /tmp/destination.tar.gz
-
-        - name: Some other config file
-          required: false
-          description: Nesto sasvim novo
-          path: /tmp/destinationbbb.tar.gz
-          
+    parameters: deploy.yml
       env_vars:
         # Simplest example - everything is required
         - name: SERVER_IP
         - name: SERVER_HOSTNAME
         - name: SERVER_COLOR
-
-        # Simplest example - in key is option set required to false
-        - name: SERVER_IP
-          required: false
-
-        # This field is required, if you leave it blank (don't send anything to API) we will set it to default value
-        - name: SERVER_HOSTNAME
-          default_value: green
-
-        # This is not valid definition        
-        - name: SERVER_COLOR
-          required: false
-          default_value: green
+        
+        - name: TARGER
+          description: Lorem impsum
+          dafault_value: "C"
+          options: 
+            - "A"
+            - "B"
+            - "C" 
 
         # Simplest example
         - name: SERVER_IP
