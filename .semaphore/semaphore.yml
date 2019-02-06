@@ -1,78 +1,36 @@
-version: "v1.0"
-name: Example ppls
+# This will create following topology:
+#   A - -  B - - C
+#        /  \
+#   D --       - - E
+version: v1.0
+name: Free topology pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
-  - name: Fetch deps
+  - name: A
+    dependencies: []
     task:
       jobs:
-      - name: Download and cache
-        commands:
-          - cache list          
-          - cache has_key elasticsearch-6.2.1 || wget -nc https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.1.deb
-          - cache has_key elasticsearch-6.2.1 || cache store elasticsearch-6.2.1 elasticsearch-6.2.1.deb
-
-
-  - name: Tests
+        - commands: [echo foo]
+  - name: B
+    dependencies: [A, D]
     task:
       jobs:
-      - name: language versions
-        commands:
-          - cache restore elasticsearch-6.2.1
-          - echo "install ES and run tests"
-
-promotions:
-  - name: Deploy to Production
-    pipeline_file:
-    parameters: deploy.yml
-      env_vars:
-        # Simplest example - everything is required
-        - name: SERVER_IP
-        - name: SERVER_HOSTNAME
-        - name: SERVER_COLOR
-        
-        - name: TARGER
-          description: Lorem impsum
-          dafault_value: "C"
-          options: 
-            - "A"
-            - "B"
-            - "C" 
-
-        # Simplest example
-        - name: SERVER_IP
-          description: Bla bla
-        - name: SERVER_HOSTNAME
-          description: Bla bla
-        - name: SERVER_COLOR
-          description: Bla bla
-
-        # The value passed must be one from the list. In UI we merge default with values and select defaut. 
-        # In API if some value which is different from default + values is sent we reject
-        # In API if nothing is sent we set default value
-        # In API if valid value is sent it will be that value :)      
-        - name: SERVER_IP
-          description: Lorem impsum
-          dafault_value: "Bnbnbn"
-          options: 
-            - "A"
-            - "B"
-            - "C"          
-
-        # The value passed must be one from the list. First is default in UI is black option in select box.
-        # We are not sending anything to API if user selected blank value from the UI.
-        - name: SERVER_IP
-          required: false
-          description: Lorem impsum      
-          options: 
-            - "192.158.23.23"
-            - "192.158.23.23"
-
-        # Just example of simplest form
-        - name: SERVER_IP
-          options: 
-            - "192.158.23.23"
-            - "192.158.23.23"      
+        - commands: [echo bar]
+  - name: C
+    dependencies: [B]
+    task:
+      jobs:
+        - commands: [echo baz]
+  - name: D
+    dependencies: []
+    task:
+      jobs:
+        - commands: [echo D]
+  - name: E
+    dependencies: [B]
+    task:
+      jobs:
+        - commands: [echo E]
