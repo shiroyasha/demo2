@@ -26,8 +26,96 @@ blocks:
 
 promotions:
   - name: Deploy to Production
-    pipeline_file:
-    parameters: deploy.yml
+    pipeline_file: deploy.yml
+
+    # Current state
+    auto_promote_on:
+      - branch:
+          - ^master$
+          - hotfix
+
+
+    auto_promote_on:
+      labels:
+        - master
+        - production
+        - namoramominista  # label type: nesto_novos
+      label_pattern: 
+        - ^refs/tags/v1.1.*$
+        - master
+        - hotfix-.*
+      result: failed
+      result_reason: malformed
+=======================================================
+    auto_promote_on:
+      - labels:
+          branches:
+            - master
+            - /master/
+            - production
+            - /hotfix-.*/
+          tags: 
+            - /v1.1.*/
+          nesto_novos: 
+            - namoramominista       
+        result: failed
+        result_reason: malformed
+======================================================
+    auto_promote_on:
+      - branches:
+          - master
+          - /master/
+          - production
+          - /hotfix-.*/
+        tags: 
+          - /v1.1.*/
+        nesto_novos: 
+          - namoramominista
+        result: failed
+        result_reason: malformed
+
+
+
+
+
+
+
+
+
+
+
+
+    # A
+    # 80%    
+    # 99%
+    # 100%
+    auto_promote_on:
+      - branches:
+        - master
+        - /master/
+        - production
+        - /hotfix-.*/
+      tags: 
+        - /v1.1.*/
+      snapshot_label:
+        - darko-devbox
+      boja_auto:
+        - plava
+        
+    # B
+    auto_promote_on:
+      labels:
+         branch: master
+        - production
+      label_patterns:
+        - hotfix-.*
+        - "tag=v1.1.*"
+
+df:
+  - ^refs/tags/v.*$
+  - 
+
+    parameters: 
       env_vars:
         # Simplest example - everything is required
         - name: SERVER_IP
