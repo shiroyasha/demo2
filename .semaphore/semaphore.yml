@@ -26,8 +26,8 @@ blocks:
 
 promotions:
   - name: Deploy to Production
-    pipeline_file:
-    parameters: deploy.yml
+    pipeline_file: deploy.yml
+    parameters: 
       env_vars:
         # Simplest example - everything is required
         - name: SERVER_IP
