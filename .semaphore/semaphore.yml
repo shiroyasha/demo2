@@ -1,12 +1,13 @@
 version: "v1.0"
 name: Example ppls
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-    containers:
-      - name: ruby
-        image: grc.io/rt/ruby:2.5.1
+
+agents:
+  - name: djura
+    machine:
+      type: e1-standard-2
+      containers:
+        - name: ruby
+          image: grc.io/rt/ruby:2.5.1
 
 blocks:
   - name: Fetch deps
@@ -22,26 +23,7 @@ blocks:
 
   - name: Tests
     task:
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: redhat
-          containers:
-            - name: main
-              image: grc.io/rt/web:123-123-124
-            - name: postgres
-              image: grc.io/rt/pg:123-123-1sdf              
-              # optional
-              env_vars:
-                - name: PG_PASSWORD
-                  value: shifra
-                - name: PG_PASSWORD1
-                  value: shifra1
-              secrets:
-                - name: gcp-keys
-              # optional
-              command: "/bin/bash"
-                                
+      use_agent: djura                           
       jobs:
       - name: RSpec 1/3
         commands:
