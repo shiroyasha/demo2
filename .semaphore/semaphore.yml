@@ -3,27 +3,27 @@ name: Example ppls
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
-    docker:
-      image_pull_secrets:
-        - name: gcr-pull-secret
-        - name: ecr-pull-secret
-      containers:
-        - name: main
-          image: grc.io/rt/web:123-123-124
-          
-        - name: postgres
-          image: grc.io/rt/pg:123-123-1sdf              
-          command: "/bin/bash"
-          env_vars:
-            - name: PG_PASSWORD
-              value: shifra
+    
+    containers:
+      - name: main
+        image: grc.io/rt/web:123-123-124
 
-        - name: statsd
-          image: aws.io/semaphore/statsd-custom:најновији
-          secrets:
-            - name: influx-connection-data
-      
+      - name: postgres
+        image: grc.io/rt/pg:123-123-1sdf              
+        command: "/bin/bash"
+        env_vars:
+          - name: PG_PASSWORD
+            value: shifra
+
+      - name: statsd
+        image: aws.io/semaphore/statsd-custom:најновији
+        secrets:
+          - name: influx-connection-data
+    
+    image_pull_secrets:
+      - name: gcr-pull-secret
+      - name: ecr-pull-secret
+
 blocks:
   - name: Fetch deps
     task:
